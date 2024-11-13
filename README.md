@@ -20,9 +20,15 @@ __Data Preprocessing and Integration:__
 2.Uses deep learning algorithms (optional) for non-linear relationships, improving accuracy over linear models.
 
 **Serverless Prediction with AWS Lambda:**
+
 1.Deploys the trained model to AWS Lambda for scalable, real-time predictions.
+
 2.Supports API-based requests, enabling integration with web or mobile applications for live insights.
 
 **Cloud Storage with AWS S3:**
+
 1.Stores processed data and model artifacts in S3, ensuring data durability and availability.
+
 2.Facilitates secure data access and versioning for training and inference.
+
+
