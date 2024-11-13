@@ -4,22 +4,21 @@
 #include <iostream>
 
 int main() {
-    // Preprocess the data
-    auto data = preprocessData("data/crime_data.csv");
+    // Preprocess and load data
+    auto crimeData = preprocessCrimeData("data/crime_data.csv");
+    auto externalData = loadExternalData("data/external_data.csv");
 
-    // Extract features and prepare training data
+    // Extract features for each row
     std::vector<std::vector<float>> trainData;
-    for (const auto &row : data) {
-        trainData.push_back(extractFeatures(row));
+    for (size_t i = 0; i < crimeData.size(); ++i) {
+        auto features = extractAdvancedFeatures(crimeData[i], externalData[i]);
+        trainData.push_back(features);
     }
 
-    // Train model
-    float modelWeight = trainModel(trainData);
+    // Call SageMaker for training
+    startSageMakerTraining("s3://your-bucket/train-data", "s3://your-bucket/model-output");
 
-    // Predict using a sample feature set
-    std::vector<float> sampleFeatures = {0.6, 0.4};  // Example features
-    float prediction = predict(sampleFeatures, modelWeight);
-
-    std::cout << "Crime rate prediction: " << prediction << std::endl;
+    std::cout << "Advanced Crime Rate Prediction setup complete." << std::endl;
     return 0;
 }
+
