@@ -1,18 +1,20 @@
 #include "feature_engineering.h"
+#include <cmath>
 
-std::vector<float> extractFeatures(const std::vector<float> &dataRow) {
+std::vector<float> extractAdvancedFeatures(const std::vector<float> &dataRow, const std::vector<float> &externalDataRow) {
     std::vector<float> features;
 
-    // Example feature: Population density adjustment
-    float densityFactor = dataRow[0] * 0.8;
-    features.push_back(densityFactor);
+    float crimeRate = dataRow[0];
+    float populationDensity = externalDataRow[0];
+    float incomeLevel = externalDataRow[1];
 
-    // Additional feature: Seasonal adjustment
-    float seasonalFactor = (dataRow[1] > 0.5) ? 1.2 : 0.8;
-    features.push_back(seasonalFactor);
+    // Advanced feature engineering
+    float adjustedCrimeRate = crimeRate * std::log(populationDensity);
+    features.push_back(adjustedCrimeRate);
 
-    // Crime rate by area as a proxy feature
-    features.push_back(dataRow[2]);
+    float socioeconomicImpact = incomeLevel * 0.7;  // Example weight factor
+    features.push_back(socioeconomicImpact);
 
+    // Other features such as time-based seasonality, etc.
     return features;
 }
