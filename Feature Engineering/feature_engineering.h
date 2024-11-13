@@ -3,6 +3,7 @@
 
 #include <vector>
 
-std::vector<float> extractFeatures(const std::vector<float> &dataRow);
+std::vector<float> extractAdvancedFeatures(const std::vector<float> &dataRow, const std::vector<float> &externalDataRow);
 
-#endif // 
+#endif // FEATURE_ENGINEERING_H
+
