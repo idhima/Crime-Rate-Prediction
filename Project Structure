@@ -1,0 +1,25 @@
+crime-rate-prediction/
+│
+├── src/
+│   ├── main.cpp                # Main file for initiating data processing and training
+│   ├── data_preprocessing.cpp   # Preprocesses crime and external data sources
+│   ├── feature_engineering.cpp  # Extracts complex features from datasets
+│   ├── model.cpp                # Advanced machine learning model code
+│   ├── inference.cpp            # Model inference and prediction functions
+│
+├── include/                     # Header files for modular project structure
+│
+├── aws/
+│   ├── upload_data.cpp          # Uploads data to S3 for cloud storage
+│   ├── sagemaker_training.cpp   # Triggers training job on Amazon SageMaker
+│   ├── lambda_inference.cpp     # AWS Lambda function for serverless predictions
+│
+├── scripts/
+│   ├── download_external_data.py # Script to download external datasets (e.g., weather, income)
+│   ├── preprocess_data.py        # Script to preprocess combined datasets for training
+│
+├── models/                      # Stores trained models for local testing
+│
+├── CMakeLists.txt               # Build configuration
+├── README.md                    # Project description and setup instructions
+└── requirements.txt             # Dependency list (e.g., AWS SDK, ONNX, etc.)
