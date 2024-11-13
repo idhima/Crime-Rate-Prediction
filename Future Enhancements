@@ -1,9 +1,9 @@
-**Future Enhancements**
-__1.Real-Time Data Ingestion:__
+Future Enhancements
+1.Real-Time Data Ingestion:
 Integrate real-time data streaming from sources like police reports or social media.
 
-__2.Automated Retraining:__ 
+2.Automated Retraining:
 Schedule periodic model retraining using SageMaker pipelines.
 
-__3.Visualization Dashboard:__
+3.Visualization Dashboard:
 Create a front-end dashboard to display live crime prediction statistics.
